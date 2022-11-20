@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="766.0" prefWidth="1450.0" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.HomeController">
+      <children>
+         <VBox prefHeight="200.0" BorderPane.alignment="CENTER">
+            <children>
+               <Button fx:id="btnAppointments" mnemonicParsing="false" onAction="#handleAppointBtn" styleClass="menubtn1" text="Manage Appointments" textAlignment="CENTER" textFill="#171717">
+                  <padding>
+                     <Insets bottom="85.0" left="10.0" right="11.0" top="85.0" />
+                  </padding>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+                  <font>
+                     <Font name="System Bold" size="17.0" />
+                  </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+               <Button fx:id="btnDoctors" mnemonicParsing="false" onAction="#handleDocBtn" styleClass="menubtn2" text="Manage Doctors">
+                  <padding>
+                     <Insets bottom="85.0" left="10.0" right="55.0" top="85.0" />
+                  </padding>
+                  <font>
+                     <Font name="System Bold" size="17.0" />
+                  </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+               <Button fx:id="btnPatients" mnemonicParsing="false" onAction="#handlePatBtn" styleClass="menubtn3" text="Manage Patients">
+                  <padding>
+                     <Insets bottom="85.0" left="10.0" right="54.0" top="85.0" />
+                  </padding>
+                  <font>
+                     <Font name="System Bold" size="17.0" />
+                  </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+               <Button fx:id="btnDiseases" mnemonicParsing="false" onAction="#handleDisBtn" styleClass="menubtn4" text="Manage Diseases">
+                  <padding>
+                     <Insets bottom="85.0" left="10.0" right="37.0" top="86.0" />
+                  </padding>
+                  <font>
+                     <Font name="System Bold" size="17.0" />
+                  </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            </children>
+            <BorderPane.margin>
+               <Insets top="-71.0" />
+            </BorderPane.margin>
+         </VBox>
+      <ImageView fitHeight="37.0" fitWidth="128.0" layoutX="556.0" layoutY="729.0" onMouseClicked="#handleLinkBtn" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/linkedin_logo.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      </children>
+   </AnchorPane>

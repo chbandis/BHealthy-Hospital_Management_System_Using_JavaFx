@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1450.0" styleClass="background" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DoctorController">
+   <children>
+      <VBox prefHeight="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAppointments" mnemonicParsing="false" onAction="#handleAppointBtn" styleClass="menubtn1" text="Manage Appointments" textAlignment="CENTER" textFill="#171717">
+               <padding>
+                  <Insets bottom="85.0" left="10.0" right="11.0" top="85.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="btnDoctors" disable="true" mnemonicParsing="false" styleClass="menubtn2" text="Manage Doctors">
+               <padding>
+                  <Insets bottom="85.0" left="10.0" right="55.0" top="85.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="btnPatients" mnemonicParsing="false" onAction="#handlePatBtn" styleClass="menubtn3" text="Manage Patients">
+               <padding>
+                  <Insets bottom="85.0" left="10.0" right="54.0" top="85.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="btnDiseases" mnemonicParsing="false" onAction="#handleDisBtn" styleClass="menubtn4" text="Manage Diseases">
+               <padding>
+                  <Insets bottom="85.0" left="10.0" right="37.0" top="86.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children>
+         <BorderPane.margin>
+            <Insets top="-71.0" />
+         </BorderPane.margin>
+      </VBox>
+      <Label layoutX="744.0" layoutY="14.0" text="Doctors" textFill="#426ab7">
+         <font>
+            <Font name="System Bold" size="46.0" />
+         </font>
+      </Label>
+      <Label layoutX="571.0" layoutY="746.0" text="Hospital Management Application - Christos Bandis - Metropolitan College 2021" textFill="#426ab7">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Button fx:id="btnAddDoc" layoutX="743.0" layoutY="646.0" mnemonicParsing="false" onAction="#handleAddDocBtn" styleClass="addbtn" text="Add Doctor">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnCreateDatabase" layoutX="717.0" layoutY="646.0" mnemonicParsing="false" onAction="#handleCreateDBbtn" styleClass="addbtn" text="Create Database" visible="false">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+      <TableView fx:id="DoctorTable" layoutX="511.0" layoutY="94.0" prefHeight="497.0" prefWidth="606.0">
+         <columns>
+            <TableColumn fx:id="doctorIDColumn" prefWidth="136.0" text="Doctor ID" />
+            <TableColumn fx:id="doctorNameColumn" prefWidth="228.0" text="Doctor Name" />
+            <TableColumn fx:id="doctorSpecialisationColumn" minWidth="3.0" prefWidth="239.0" text="Specialisation" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

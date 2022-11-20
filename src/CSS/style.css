@@ -1,0 +1,190 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+/* Stages */
+.root {
+    -fx-background-image: url("../Images/home-background.png");
+    -fx-font-family: 'Comfortaa';
+}
+.popup {
+    -fx-background-image: url("../Images/background.png");
+    -fx-font-family: 'Comfortaa';
+    -fx-font-size: 13px;
+}
+.background {
+    -fx-background-image: url("../Images/background.png");
+}
+
+/* Sidebar Menu */
+.menubtn1 {
+    -fx-background-color: 
+    #000000,
+    linear-gradient(#7ebcea, #2f4b8f),
+    linear-gradient(#426ab7, #263e75),
+    linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 85 6 85 6;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+   
+}
+.menubtn1 Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+.menubtn1:hover {
+    -fx-background-color: 
+    #000000,
+    linear-gradient(#6fa6d0, #29407b),
+    linear-gradient(#3a5d9f, #233868),
+    linear-gradient(#325096, #1c2e57);
+}  
+.menubtn2 {
+    -fx-background-color: 
+    #000000,
+    linear-gradient(#7ebcea, #2f4b8f),
+    linear-gradient(#426ab7, #263e75),
+    linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 85 37 85 27;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+.menubtn2 Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+.menubtn2:hover {
+    -fx-background-color: 
+    #000000,
+    linear-gradient(#6fa6d0, #29407b),
+    linear-gradient(#3a5d9f, #233868),
+    linear-gradient(#325096, #1c2e57);
+}  
+.menubtn3 {
+    -fx-background-color: 
+    #000000,
+    linear-gradient(#7ebcea, #2f4b8f),
+    linear-gradient(#426ab7, #263e75),
+    linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 86 36 86 26;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+.menubtn3 Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+.menubtn3:hover {
+    -fx-background-color: 
+    #000000,
+    linear-gradient(#6fa6d0, #29407b),
+    linear-gradient(#3a5d9f, #233868),
+    linear-gradient(#325096, #1c2e57);
+}  
+.menubtn4 {
+    -fx-background-color: 
+    #000000,
+    linear-gradient(#7ebcea, #2f4b8f),
+    linear-gradient(#426ab7, #263e75),
+    linear-gradient(#395cab, #223768);
+    -fx-background-insets: 0,1,2,3;
+    -fx-background-radius: 3,2,2,2;
+    -fx-padding: 87 32 87 25;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+.menubtn4 Text {
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 0, 0.0 , 0 , 1);
+}
+.menubtn4:hover {
+    -fx-background-color: 
+    #000000,
+    linear-gradient(#6fa6d0, #29407b),
+    linear-gradient(#3a5d9f, #233868),
+    linear-gradient(#325096, #1c2e57);
+} 
+
+/* New Appointment, Add Patient, Add Doctor, Add Disease Button */
+.addbtn {
+    -fx-padding: 12 19 19 19;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: 
+        linear-gradient(from 0% 93% to 0% 100%, #263e75 0%, #223768 100%),
+        #223768,
+        radial-gradient(center 50% 50%, radius 100%, #3760ab, #3760ab);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-text-fill: white;
+}
+.addbtn:hover {
+    -fx-background-color: 
+    linear-gradient(from 0% 93% to 0% 100%, #223667 0%, #1d2f59 100%),
+    #1f325e, 
+    radial-gradient(center 50% 50%, radius 100%, #31559a, #2d4e8c);
+}
+
+/* Save and Cancel Buttons from popup windows */
+.savebtn, .cancelbtn {
+-fx-background-color: 
+    linear-gradient(#f2f2f2, #d6d6d6),
+    linear-gradient(#fcfcfc 0%, #d9d9d9 20%, #d6d6d6 100%),
+    linear-gradient(#dddddd 0%, #f6f6f6 50%);
+    -fx-pref-width: 120px;
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+.savebtn:hover {
+    -fx-background-color: 
+    linear-gradient(#3a5d9f, #325096),
+    linear-gradient(#3a5d9f 0%, #3a5d9f 20%, #325096 100%),
+    linear-gradient(#325096 0%, #325096 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-cursor: hand;
+}
+.cancelbtn:hover {
+    -fx-background-color: 
+    linear-gradient(#b32323, #c20e0e),
+    linear-gradient(#b32323 0%, #b32323 20%, #c20e0e 100%),
+    linear-gradient(#c20e0e 0%, #c20e0e 50%);
+    -fx-background-radius: 8,7,6;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-cursor: hand;
+}
+
+/* TableView */
+.table-view {
+    -fx-background-color: transparent;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background {
+    -fx-background-color: #426ab7;
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-padding: 0 0 5px 0;    
+}
+.table-view .column-header .label {
+    -fx-text-fill:white;
+    -fx-font-size:14px;
+}
+.table-row-cell:odd {
+    -fx-background-color: #cadbfc;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
+/* Combobox and RadioButton Cursor */
+.combo-box-base:hover, .combo-box .list-cell, .radio-button {
+    -fx-cursor: hand;
+}

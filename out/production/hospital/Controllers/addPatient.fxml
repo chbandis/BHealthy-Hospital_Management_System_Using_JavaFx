@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="679.0" prefWidth="430.0" styleClass="popup" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AddPatientController">
+    <children>
+        <Label layoutX="147.0" layoutY="33.0" text="Add Patient" textFill="#426ab7">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font>
+        </Label>
+        <TextField fx:id="patName" layoutX="187.0" layoutY="112.0" prefHeight="27.0" prefWidth="207.0" />
+        <Label layoutX="33.0" layoutY="112.0" text="Patient Name:">
+            <font>
+                <Font name="Arial" size="17.0" />
+            </font>
+        </Label>
+        <Label layoutX="33.0" layoutY="170.0" text="Gender:">
+            <font>
+                <Font name="Arial" size="17.0" />
+            </font>
+        </Label>
+        <Label layoutX="33.0" layoutY="232.0" text="Date of Birth:">
+            <font>
+                <Font name="Arial" size="17.0" />
+            </font>
+        </Label>
+        <Label layoutX="33.0" layoutY="352.0" text="Doctor Name:">
+            <font>
+                <Font name="Arial" size="17.0" />
+            </font>
+        </Label>
+        <TextArea fx:id="patTreat" layoutX="186.0" layoutY="472.0" prefHeight="104.0" prefWidth="207.0" />
+        <Label layoutX="31.0" layoutY="472.0" text="Treatment:">
+            <font>
+                <Font name="Arial" size="17.0" />
+            </font>
+        </Label>
+        <Button fx:id="btnSave" layoutX="36.0" layoutY="620.0" mnemonicParsing="false" onAction="#addDPat" styleClass="savebtn" stylesheets="@../CSS/style.css" text="Save">
+            <font>
+                <Font name="Arial" size="19.0" />
+            </font>
+            <padding>
+                <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+            </padding>
+        </Button>
+        <Button layoutX="278.0" layoutY="620.0" mnemonicParsing="false" onAction="#handleCancelPatBtn" styleClass="cancelbtn" stylesheets="@../CSS/style.css" text="Cancel">
+            <font>
+                <Font name="Arial" size="19.0" />
+            </font>
+            <padding>
+                <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+            </padding>
+        </Button>
+      <RadioButton fx:id="patMale" layoutX="187.0" layoutY="172.0" mnemonicParsing="false" text="Male">
+         <toggleGroup>
+            <ToggleGroup fx:id="tgGender" />
+         </toggleGroup>
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="patFemale" layoutX="320.0" layoutY="172.0" mnemonicParsing="false" text="Female" toggleGroup="$tgGender">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></RadioButton>
+      <DatePicker fx:id="patDOB" layoutX="187.0" layoutY="232.0" prefHeight="27.0" prefWidth="207.0" />
+      <Label layoutX="33.0" layoutY="412.0" text="Disease:">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="patDoc" layoutX="187.0" layoutY="352.0" onAction="#docSpecChoice" prefHeight="27.0" prefWidth="207.0" />
+      <ComboBox fx:id="patDis" layoutX="186.0" layoutY="412.0" prefHeight="27.0" prefWidth="207.0" />
+      <Label layoutX="33.0" layoutY="292.0" text="Phone Number">
+         <font>
+            <Font name="Arial" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="patTel" layoutX="186.0" layoutY="292.0" prefHeight="27.0" prefWidth="207.0" />
+    </children>
+</AnchorPane>

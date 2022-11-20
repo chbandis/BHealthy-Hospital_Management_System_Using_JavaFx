@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1450.0" styleClass="background" stylesheets="@../CSS/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PatientController">
+    <children>
+        <VBox prefHeight="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="btnAppointments" mnemonicParsing="false" onAction="#handleAppointBtn" styleClass="menubtn1" text="Manage Appointments" textAlignment="CENTER" textFill="#171717">
+                    <padding>
+                        <Insets bottom="85.0" left="10.0" right="11.0" top="85.0" />
+                    </padding>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+                <Button fx:id="btnDoctors" mnemonicParsing="false" onAction="#handleDocBtn" styleClass="menubtn2" text="Manage Doctors">
+                    <padding>
+                        <Insets bottom="85.0" left="10.0" right="55.0" top="85.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+                <Button fx:id="btnPatients" disable="true" mnemonicParsing="false" styleClass="menubtn3" text="Manage Patients">
+                    <padding>
+                        <Insets bottom="85.0" left="10.0" right="54.0" top="85.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+                <Button fx:id="btnDiseases" mnemonicParsing="false" onAction="#handleDisBtn" styleClass="menubtn4" text="Manage Diseases">
+                    <padding>
+                        <Insets bottom="85.0" left="10.0" right="37.0" top="86.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+            </children>
+            <BorderPane.margin>
+                <Insets top="-71.0" />
+            </BorderPane.margin>
+        </VBox>
+        <Label layoutX="735.0" layoutY="14.0" text="Patients" textFill="#426ab7">
+            <font>
+                <Font name="System Bold" size="46.0" />
+            </font>
+        </Label>
+        <Label layoutX="571.0" layoutY="746.0" text="Hospital Management Application - Christos Bandis - Metropolitan College 2021" textFill="#426ab7">
+            <font>
+                <Font size="16.0" />
+            </font></Label>
+        <Button fx:id="btnAddPat" layoutX="740.0" layoutY="646.0" mnemonicParsing="false" onAction="#handleAddPatBtn" styleClass="addbtn" text="Add Patient">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Button>
+      <Button fx:id="btnCreateDatabase" layoutX="715.0" layoutY="646.0" mnemonicParsing="false" onAction="#handleCreateDBbtn" styleClass="addbtn" text="Create Database" visible="false">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Button>
+        <TableView fx:id="patientTable" layoutX="240.0" layoutY="93.0" prefHeight="497.0" prefWidth="1170.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="92.0" text="Patient ID" />
+                <TableColumn fx:id="patientNameColumn" prefWidth="198.0" text="Patient Name" />
+                <TableColumn fx:id="patientGenderColumn" minWidth="3.0" prefWidth="78.0" text="Gender" />
+                <TableColumn fx:id="patientDOBColumn" minWidth="0.0" prefWidth="107.0" text="Date of Birth" />
+            <TableColumn fx:id="patientTelColumn" prefWidth="125.0" text="Phone Number" />
+                <TableColumn fx:id="patientDoctorName" prefWidth="198.0" text="Doctor Name" />
+                <TableColumn fx:id="diseaseColumn" prefWidth="143.0" text="Disease" />
+            <TableColumn fx:id="treatmentColumn" prefWidth="227.0" text="Treatment" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
