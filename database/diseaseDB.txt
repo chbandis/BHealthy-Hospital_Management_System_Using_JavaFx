@@ -1,0 +1,5 @@
+1:Allergy:Allergies are an immune response triggered by allergens, an ordinarily harmful substance.:Dermatology
+2:Diarrhea:The condition of having at least three loose, liquid, or watery bowel movements each day.:Gastroenterology
+3:Headaches:The symptom of pain in the face, head, or neck. It can occur as a migraine, tension-type headache, or cluster headache.:Neurology
+4:Stomach Aches:A symptom associated with both non-serious and serious medical issues.:Gastroenterology
+5:Acne:Acne is a common skin condition that affects most people at some point. It causes spots, oily skin and sometimes skin that's hot or painful to touch.:Dermatology
