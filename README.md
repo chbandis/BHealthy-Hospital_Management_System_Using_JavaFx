@@ -1,4 +1,4 @@
-# Hospital Management System Using JavaFx
+# BHealthy - Hospital Management System Using JavaFx
 The purpose of this project is to implement a data management system of a hospital. This system provides the user with the ability to manage information about doctors, patients, their illnesses, their appointments, but also the treatment per appointment.
 
 Below are some screenshots of the application's user interface:
