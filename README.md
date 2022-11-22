@@ -1,7 +1,7 @@
 # Hospital Management System Using JavaFx
 The purpose of this project is to implement a data management system of a hospital. This system provides the user with the ability to manage information about doctors, patients, their illnesses, their appointments, but also the treatment per appointment.
 
-Below are some screenshots of the application's user interface.
+Below are some screenshots of the application's user interface:
 ![image](https://user-images.githubusercontent.com/91207835/203411488-5b62cad5-f16d-46b3-8cd3-ee2ff970b8c6.png)
 ![image](https://user-images.githubusercontent.com/91207835/203411632-5da0608e-f0f5-425d-8aed-790d0fca924d.png)
 ![image](https://user-images.githubusercontent.com/91207835/203411646-7ff068e9-52c2-4ecb-a60a-bb3ae21a5b5c.png)
