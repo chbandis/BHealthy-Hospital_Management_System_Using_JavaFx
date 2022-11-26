@@ -31,25 +31,25 @@ public class AddDoctorController implements Initializable {
     ArrayList<String> specList = new ArrayList<>();
     int id;
 
-    //Μέθοδος για το κουμπί Cancel
+    //Method for the Cancel button
     public void handleCancelDocBtn(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("doctors.fxml")); //Καθορισμός του doctors.fxml ως Parent
-        Scene DocScene = new Scene(root); //Δημιουργία του Scene "DocScene"
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Δημιουργία του Stage "window"
-        window.setScene(DocScene); //Καθοριμός του Scene "DocScene" στο Stage "window"
-        window.show(); //Εμφάνιση του Stage "window"
+        Parent root = FXMLLoader.load(getClass().getResource("doctors.fxml")); //Set doctors.fxml as Parent
+        Scene DocScene = new Scene(root); //Create the Scene "DocScene"
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Create the Stage "window"
+        window.setScene(DocScene); //Set the Scene "DocScene" in the Stage "window"
+        window.show(); //Show the Stage "window"
     }
-    //Μέθοδος για το κουμπί Add Doctor
+    //Method for the Add Doctor buttonr
     public void addDoc(ActionEvent event) throws IOException {
-        String name = docName.getText(); //Καταχώριση των τιμών των πεδίων στις αντίστοιχες μεταβλητές
+        String name = docName.getText(); //Enter the field values in the corresponding variables
         String spec = (String) docSpec.getValue();
-        if(name.isEmpty() || docSpec.getSelectionModel().isEmpty()){ //Έλεγχος για κενά πεδία και εμφάνιση του κατάλληλου μηνύματος
+        if(name.isEmpty() || docSpec.getSelectionModel().isEmpty()){ //Check for empty fields and display the appropriate message
             MessageBox.SimpleMBox("Please fill all the fields", "Fill all the fields");
-        } else if(containsNumber(name)){ //Έλεγχος αν η τιμή του πεδίου περιέχει αριθμούς μέσω της μεθόδου "containsNumber" που δημιουργείται
-            MessageBox.SimpleMBox("Name should not contain number(s)", "Error"); //παρακάτω και εμφάνιση του κατάλληλου μηνύματος
+        } else if(containsNumber(name)){ //Check if the field value contains numbers by using the generated containsnumber method
+            MessageBox.SimpleMBox("Name should not contain number(s)", "Error"); //below and display the appropriate message
         }
-        else { //Αν ολοκληρωθούν οι έλεγχοι χωρίς κάποιο σφάλμα πραγματοποιείται εγγραφή των τιμών στη "βάση" μέσω της μεθόδου "addDoctor" της κλάσης "writeToDB"
-            writeToDB.addDoctor(id, name, spec);                                                       //και ανακατεύθυνση Stage "window" που δημιουργείται παρακάτω
+        else { //if the tests are completed without any error, the values are written to the "database" through the "addDoctor" method of the "writeToDB" class
+            writeToDB.addDoctor(id, name, spec);                                                       //and redirect to stage "window" created below
             Parent root = FXMLLoader.load(getClass().getResource("doctors.fxml"));
             Scene DisScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -57,7 +57,7 @@ public class AddDoctorController implements Initializable {
             window.show();
         }
     }
-    //Η μέθοδος containsNumber που δέχεται μία μεταβλητή τύπου "String" και επιστρέφει αν αυτή η μεταβλητή περιέχει αριθμούς.
+    //the containsnumber method that accepts a string variable and returns if that variable contains numbers
     public boolean containsNumber(String s)
     {
         Pattern p = Pattern.compile( "[0-9]" );
@@ -66,44 +66,44 @@ public class AddDoctorController implements Initializable {
         return m.find();
     }
 
-    //Χρήση της μεθόδου initialize ώστε να αρχικοποιηθούν οι παρακάτω τιμές πριν την εκτέλεση του Controller
+    //use the initialize method to initialize the following values before running the controller
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         int lastid = 0;
         String line = "";
         String delimiter = ":";
         String Docfile = "database/doctorDB.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(Docfile))) { //Reading του αρχείου doctorDB.txt
+        try (BufferedReader br = new BufferedReader(new FileReader(Docfile))) { //Reading the file doctorDB.txt
             while ((line = br.readLine()) != null) {
                 List<String> values = Arrays.asList(line.split(delimiter));
-                 lastid = Integer.parseInt(values.get(0)); //Καταχώριση της πρώτης τιμής του αρχείου στη μεταβλητή lastid
+                 lastid = Integer.parseInt(values.get(0)); //Enter the first value of the file in the lastid variable
             }
-            if(lastid==0) { //Αν δεν υπάρχει τιμή στο αρχείο τότε καταχωρείται στη μεταβλητή id η τιμή 1
-                id = 1;     //ώστε οι εγγραφές να ξεκινήσουν από τον αριθμό 1 και όχι απο το 0
+            if(lastid==0) { //if there is no value in the file then the value 1 is entered in the variable id
+                id = 1;     //so that registrations start from the number 1 and not from 0
             } else {
-                id = lastid + 1; //Αν υπάρχει τιμή στο αρχείο τότε η πρώτη τιμή της επόμενης εγγραφής που θα πραγματοποιηθεί θα
-            }                    //θα είναι η τιμή της προηγούμενης αυξημένη κατά 1
+                id = lastid + 1; //if there is a value in the file then the first value of the next record that will be made
+            }                    //will be the value of the previous increased by 1
         } catch (IOException e) {
-            e.printStackTrace(); //Σε αυτό το σημείο δε πραγματοποιείται έλεγχος για την ύπαρξη του αρχείου "doctorDB", καθώς πραγματοποιείται
-        }                        //στο προηγούμενο Stage και στη περίπτωση που δεν υφίσταται το συγκεκριμένο αρχείο δεν εμφανίζεται το παρόν Stage (addDoctor.fxml)
+            e.printStackTrace(); //At this point, no check is made for the existence of the "doctorDB" file, as it is carried out
+        }                        //in the previous stage and if the specific file does not exist the present stage does not appear (addDoctor.fxml)
 
         String Disfile = "database/diseaseDB.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(Disfile))) { //Reading του αρχείου diseaseDB.txt
+        try (BufferedReader br = new BufferedReader(new FileReader(Disfile))) { //Reading the file diseaseDB.txt
             while ((line = br.readLine()) != null) {
                 List<String> values = Arrays.asList(line.split(delimiter));
-                specList.add(values.get(3)); //Καταχώριση της τέταρτης τιμής της κάθε εγγραφής που περιέχει το αρχείο στη λίστα "specList"
+                specList.add(values.get(3)); //Enter the fourth value of each record that contains the file in the "specList" list
             }
-        } catch (FileNotFoundException e){ //Αν δεν υπάρχει το αρχείο "diseaseDB" τότε πραγματοποιούνται οι κατάλληλες ενέργειες
+        } catch (FileNotFoundException e){ //if the "diseasedb" file does not exist then appropriate actions are taken
             docSpec.setValue("Error connecting to Disease Database");
             btnSave.setDisable(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        Set<String> uniqueSpec = new HashSet<>(specList); //Δημιουργία ενός HashSet από τη λίστα "specList" ώστε να εξαλειφθούν τυχόν τιμές που εμφανίζονται
-        for(String s: uniqueSpec)                         //παραπάνω από μία φορά
+        Set<String> uniqueSpec = new HashSet<>(specList); //Create a HashSet from the "specList" list to eliminate any values that appear
+        for(String s: uniqueSpec)                         //more than once
         {
-            docSpec.getItems().add(s);  //Εισαγωγή των τιμών του HashSet στα items του ComBobox "docSpec"
+            docSpec.getItems().add(s);  //Entering hashset values in ComBobox items "docSpec"
         }
     }
 
