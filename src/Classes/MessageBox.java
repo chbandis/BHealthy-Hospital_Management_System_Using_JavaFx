@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-//Κλάση για τη δημιουργία παραθύρου μηνύματος που περιέχει ένα μήνυμα κειμένου και ένα κουμπί "OK"
+//Class for creating a message window containing a text message and an OK button
 public class MessageBox {
 
     public static void SimpleMBox (String message,String title){
