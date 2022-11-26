@@ -44,17 +44,17 @@ public class AddPatientController implements Initializable {
     ObservableList<String> allDis = FXCollections.observableArrayList();
     int id;
 
-    //Μέθοδος για το κουμπί Cancel
+    //Method for the Cancel button
     public void handleCancelPatBtn(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("patients.fxml")); //Καθορισμός του patients.fxml ως Parent
-        Scene PatScene = new Scene(root); //Δημιουργία του Scene "PatScene"
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();  //Δημιουργία του Stage "window"
-        window.setScene(PatScene); //Καθοριμός του Scene "PatScene" στο Stage "window"
-        window.show(); //Εμφάνιση του Stage "window"
+        Parent root = FXMLLoader.load(getClass().getResource("patients.fxml")); //Set patients.fxml as Parent
+        Scene PatScene = new Scene(root); //Creating the Scene "PatScene"
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();  //Create the Stage "window"
+        window.setScene(PatScene); //Set the "PatScene" Scene in the Stage "window"
+        window.show(); //Show the Stage "window"
     }
-    //Μέθοδος για το κουμπί Add Patient
+    //Method for Add Patient button
     public void addDPat(ActionEvent event) throws IOException {
-        String name = patName.getText(); //Καταχώριση των τιμών των πεδίων στις αντίστοιχες μεταβλητές
+        String name = patName.getText(); //Enter the field values in the corresponding variables
         String tel = patTel.getText();
         String gender = "";
         String dob = String.valueOf(patDOB.getValue());
@@ -62,22 +62,22 @@ public class AddPatientController implements Initializable {
         String dis = (String) patDis.getValue();
         String treat = patTreat.getText();
 
-        if (patMale.isSelected()){ //Έλεγχος επιλογής των RadioButtons
+        if (patMale.isSelected()){ //Check the selection of RadioButtons
             gender = "Male";
         }
         else if (patFemale.isSelected()){
             gender = "Female";
         }
-        //Έλεγχος για κενά πεδία και εμφάνιση του κατάλληλου μηνύματος
+        //Check for empty fields and display the appropriate message
         if(name.isEmpty() || gender.isEmpty() || patDOB.getValue() == null || tel.isEmpty() || patDoc.getSelectionModel().isEmpty() || patDis.getSelectionModel().isEmpty() || treat.isEmpty()){
             MessageBox.SimpleMBox("Please fill all the fields", "Fill all the fields");
-        } else if (containsNumber(name)){ //Έλεγχος αν η τιμή του πεδίου περιέχει αριθμούς μέσω της μεθόδου "containsNumber" που δημιουργείται
-            MessageBox.SimpleMBox("Name should not contain number(s)", "Error"); //παρακάτω και εμφάνιση του κατάλληλου μηνύματος
+        } else if (containsNumber(name)){ //Check if the field value contains numbers by using the generated containsnumber method
+            MessageBox.SimpleMBox("Name should not contain number(s)", "Error"); //below and display the appropriate message
         } else if (!validateMobileNo(patTel)) {
             MessageBox.SimpleMBox("Please enter a valid phone number", "Error");
         }
-        else { //Αν ολοκληρωθούν οι έλεγχοι χωρίς κάποιο σφάλμα πραγματοποιείται εγγραφή των τιμών στη "βάση" μέσω της μεθόδου "addPatient" της κλάσης "writeToDB"
-            writeToDB.addPatient(id, name, gender, dob, tel, docName, dis, treat);                       //και ανακατεύθυνση Stage "window" που δημιουργείται παρακάτω
+        else { //if the tests are completed without any error the values are written to the "database" through the "addPatient" method of the "writeToDB" class
+            writeToDB.addPatient(id, name, gender, dob, tel, docName, dis, treat);                       //and redirect to stage "window" created below
             Parent root = FXMLLoader.load(getClass().getResource("patients.fxml"));
             Scene DisScene = new Scene(root);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -85,21 +85,21 @@ public class AddPatientController implements Initializable {
             window.show();
         }
     }
-    //Η μέθοδος containsNumber που δέχεται μία μεταβλητή τύπου "String" και επιστρέφει αν αυτή η μεταβλητή περιέχει αριθμούς.
+    //the containsnumber method that accepts a string variable and returns if that variable contains numbers
     public boolean containsNumber(String str) {
         Pattern p = Pattern.compile( "[0-9]" );
         Matcher m = p.matcher(str);
 
         return m.find();
     }
-    //Η μέθοδος validateMobileNo που δέχεται ένα Textfield και επιστρέφει αν το περιεχόμενο του αντιστοιχεί σε πραγματικό αριθμό τηλεφώνου δέκα ψηφίων.
+    //The validateMobileNo method that accepts a Textfield and returns if its content corresponds to a real ten-digit phone number.
     private boolean validateMobileNo(TextField tel) {
         Pattern p = Pattern.compile("^\\d{10}$");
         Matcher m = p.matcher(tel.getText());
         return m.find();
     }
 
-    //Η μέθοδος docSpecChoice που θέτει τις τιμές της κατάλληλης λίστας, ανάλογα με το όνομα του γιατρού, στα items του Combobox "patDis"
+    //The docSpecChoice method that sets the values of the appropriate list, depending on the name of the doctor, in the combobox items "patdis"
     @FXML
     private void docSpecChoice(){
         if(patDoc.getValue().equals("Dr Cheek")){
@@ -115,19 +115,19 @@ public class AddPatientController implements Initializable {
         }
     }
 
-    //Χρήση της μεθόδου initialize ώστε να αρχικοποιηθούν οι παρακάτω τιμές πριν την εκτέλεση του Controller
+    //use the initialize method to initialize the following values before running the controller
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         String line = "";
         String delimiter = ":";
         String Docfile = "database/doctorDB.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(Docfile))) { //Reading του αρχείου doctorDB.txt
+        try (BufferedReader br = new BufferedReader(new FileReader(Docfile))) { //Reading the file doctorDB.txt
             while ((line = br.readLine()) != null) {
                 List<String> values = Arrays.asList(line.split(delimiter));
-                docs.add(values.get(1)); //Καταχώριση της δεύτερης τιμής της κάθε εγγραφής που περιέχει το αρχείο στη λίστα "docs"
+                docs.add(values.get(1)); //Enter the second value of each record that contains the file in the "docs" list
             }
-            patDoc.setItems(docs); //Εισαγωγή των τιμών της λίστας docs στα items του ComboBox "patDoc"
-        } catch (FileNotFoundException e){ //Αν δεν υπάρχει το αρχείο "doctorDB" τότε πραγματοποιούνται οι κατάλληλες ενέργειες
+            patDoc.setItems(docs); //Entering the values of the docs list in the ComboBox items "patDoc"
+        } catch (FileNotFoundException e){ //if the "doctordb" file does not exist then appropriate actions are taken
             patDoc.setValue("Error connecting to Doctor Database");
             btnSave.setDisable(true);
         } catch (IOException e) {
@@ -135,12 +135,12 @@ public class AddPatientController implements Initializable {
         }
 
         String dermDisfile = "database/diseaseDB.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(dermDisfile))) { //Reading του αρχείου diseaseDB.txt
+        try (BufferedReader br = new BufferedReader(new FileReader(dermDisfile))) { //Reading the file diseaseDB.txt
             while ((line = br.readLine()) != null) {
                 List<String> values = Arrays.asList(line.split(delimiter));
                 allDis.add(values.get(1));
-                if (values.get(3).equals("Dermatology")){ //Καταχώριση της δεύτερης τιμής της κάθε εγγραφής που περιέχει το αρχείο στη κατάλληλη λίστα, ανάλογα
-                    dermDis.add(values.get(1));           //με το περιεχόμενο της τέταρτης τιμής κάθε εγγραφής του αρχείου
+                if (values.get(3).equals("Dermatology")){ //Enter the second value of each record that contains the file in the appropriate list,
+                    dermDis.add(values.get(1));           //depending on the content of the fourth value of each record in the file
                 }
                 else if (values.get(3).equals("Gastroenterology")){
                     gastroDis.add(values.get(1));
@@ -149,8 +149,8 @@ public class AddPatientController implements Initializable {
                     neuroDis.add(values.get(1));
                 }
             }
-            patDis.getItems().add("Please select a doctor"); //Εισαγωγή τιμής στα items του ComboBox "patDis"
-        } catch (FileNotFoundException e){ //Αν δεν υπάρχει το αρχείο "diseaseDB" τότε πραγματοποιούνται οι κατάλληλες ενέργειες
+            patDis.getItems().add("Please select a doctor"); //Enter a value in the ComboBox items "patDis"
+        } catch (FileNotFoundException e){ //if the "diseasedb" file does not exist then appropriate actions are taken
             patDis.setValue("Error connecting to Disease Database");
             btnSave.setDisable(true);
         } catch(IOException e){
@@ -159,18 +159,18 @@ public class AddPatientController implements Initializable {
 
         int lastid = 0;
         String Patfile = "database/patientDB.txt";
-        try (BufferedReader br = new BufferedReader(new FileReader(Patfile))) { //Reading του αρχείου doctorDB.txt
+        try (BufferedReader br = new BufferedReader(new FileReader(Patfile))) { //Reading the file doctorDB.txt
             while ((line = br.readLine()) != null) {
                 List<String> values = Arrays.asList(line.split(delimiter));
-                lastid = Integer.parseInt(values.get(0)); //Καταχώριση της πρώτης τιμής του αρχείου στη μεταβλητή lastid
+                lastid = Integer.parseInt(values.get(0)); //Enter the first value of the file in the lastid variable
             }
-            if(lastid==0) { //Αν δεν υπάρχει τιμή στο αρχείο τότε καταχωρείται στη μεταβλητή id η τιμή 1
-                id = 1;     //ώστε οι εγγραφές να ξεκινήσουν από τον αριθμό 1 και όχι απο το 0
+            if(lastid==0) { //if there is no value in the file then the value 1 is entered in the variable id
+                id = 1;     //so that registrations start from the number 1 and not from 0
             } else {
-                id = lastid + 1; //Αν υπάρχει τιμή στο αρχείο τότε η πρώτη τιμή της επόμενης εγγραφής που θα πραγματοποιηθεί θα
-            }                    //θα είναι η τιμή της προηγούμενης αυξημένη κατά 1
+                id = lastid + 1; //if there is a value in the file then the first value of the next record that will be made 
+            }                    //will be the value of the previous increased by 1
         } catch (IOException e) {
-            e.printStackTrace(); //Σε αυτό το σημείο δε πραγματοποιείται έλεγχος για την ύπαρξη του αρχείου "patientDB", καθώς πραγματοποιείται
-        }                        //στο προηγούμενο Stage και στη περίπτωση που δεν υφίσταται το συγκεκριμένο αρχείο δεν εμφανίζεται το παρόν Stage (addPatient.fxml)
+            e.printStackTrace(); //At this point there is no check for the existence of the "patientDB" file, as it is carried out
+        }                        //in the previous stage and if the specific file does not exist the present stage does not appear (addpatient.fxml)
     }
 }
