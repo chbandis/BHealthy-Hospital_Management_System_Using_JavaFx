@@ -32,7 +32,7 @@ public class AddDiseaseController implements Initializable {
 
     //Method for the Cancel button
     public void handleCancelDisBtn(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("diseases.fxml")); //Specify diseases.fxml as Parent
+        Parent root = FXMLLoader.load(getClass().getResource("diseases.fxml")); //Set diseases.fxml as Parent
         Scene DisScene = new Scene(root); //Creating the Scene "DisScene"
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow(); //Create the Stage "window"
         window.setScene(DisScene); //Set the "DisScene" Scene in the "window" Stage
