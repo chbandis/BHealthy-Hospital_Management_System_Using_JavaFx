@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class writeToDB {
 
-    //Εγγραφή στη βάση δεδομένων των ασθενειών
+    //Registration in the disease database
     public static void addDisease(int id, String name, String desc, String cat){
         try {
             FileWriter myWriter = new FileWriter("database/diseaseDB.txt", true);
@@ -17,7 +17,7 @@ public class writeToDB {
             e.printStackTrace();
         }
     }
-    //Εγγραφή στη βάση δεδομένων των γιατρών
+    //Registration in the database of doctors
     public static void addDoctor(int id, String name, String spec){
         try {
             FileWriter myWriter = new FileWriter("database/doctorDB.txt", true);
@@ -29,7 +29,7 @@ public class writeToDB {
             e.printStackTrace();
         }
     }
-    //Εγγραφή στη βάση δεδομένων των ασθενών
+    //Registration in the patient database
     public static void addPatient(int id, String name, String gender, String dob, String tel, String doc, String dis, String treat){
         try {
             FileWriter myWriter = new FileWriter("database/patientDB.txt", true);
@@ -41,7 +41,7 @@ public class writeToDB {
             e.printStackTrace();
         }
     }
-    //Εγγραφή στη βάση δεδομένων των συναντήσεων
+    //Registration in the database of appointments
     public static void newAppointment(int id, String patName, String patTel, String docName, String date, String datetime, String dis, String treat){
         try {
             FileWriter myWriter = new FileWriter("database/appointmentDB.txt", true);
