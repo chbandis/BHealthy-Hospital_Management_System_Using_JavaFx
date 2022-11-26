@@ -14,7 +14,7 @@ import java.net.URISyntaxException;
 
 public class HomeController{
 
-    //Μέθοδος για το κουμπί Manage Appointments
+    //Method for the Manage Appointments button
     public void handleAppointBtn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("appointments.fxml"));
         Scene AppointScene = new Scene(root);
@@ -22,7 +22,7 @@ public class HomeController{
         window.setScene(AppointScene);
         window.show();
     }
-    //Μέθοδος για το κουμπί Manage Doctors
+    //Method for the Manage Doctors button
     public void handleDocBtn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("doctors.fxml"));
         Scene DocScene = new Scene(root);
@@ -30,7 +30,7 @@ public class HomeController{
         window.setScene(DocScene);
         window.show();
     }
-    //Μέθοδος για το κουμπί Manage Patients
+    //Method for the Manage Patients button
     public void handlePatBtn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("patients.fxml"));
         Scene PatScene = new Scene(root);
@@ -38,7 +38,7 @@ public class HomeController{
         window.setScene(PatScene);
         window.show();
     }
-    //Μέθοδος για το κουμπί Manage Diseases
+    //Method for the Manage Diseases button
     public void handleDisBtn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("diseases.fxml"));
         Scene DisScene = new Scene(root);
@@ -46,7 +46,7 @@ public class HomeController{
         window.setScene(DisScene);
         window.show();
     }
-    //Μέθοδος για τον σύνδεσμο του Linked In στο κάτω μέρος του Stage
+    //Method for linking Linked In at the bottom of Stage
     public void handleLinkBtn() throws URISyntaxException, IOException {
         Desktop d = Desktop.getDesktop();
         d.browse(new URI("https://www.linkedin.com/in/chbandis/"));
