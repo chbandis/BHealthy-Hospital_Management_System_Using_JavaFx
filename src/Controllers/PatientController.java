@@ -35,15 +35,15 @@ public class PatientController implements Initializable {
     @FXML private Button btnAddPat;
     @FXML private Button btnCreateDatabase;
 
-    //Μέθοδος για το κουμπί Manage Appointments
+    //Method for the Manage Appointments button
     public void handleAppointBtn(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("appointments.fxml")); //Καθορισμός του appointments.fxml ως Parent
-        Scene AppointScene = new Scene(root); //Δημιουργία του Scene "AppointScene"
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Δημιουργία του Stage "window"
-        window.setScene(AppointScene); //Καθοριμός του Scene "AppointScene" στο Stage "window"
-        window.show(); //Εμφάνιση του Stage "window"
+        Parent root = FXMLLoader.load(getClass().getResource("appointments.fxml")); //Set the appointments.fxml as Parent
+        Scene AppointScene = new Scene(root); //Create Scene "AppointScene"
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow(); //Create the Stage "window"
+        window.setScene(AppointScene); //Set of Scene "AppointScene" in stage "window"
+        window.show(); //Show the Stage "window"
     }
-    //Μέθοδος για το κουμπί Manage Doctors
+    //Method for the Manage Doctors button
     public void handleDocBtn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("doctors.fxml"));
         Scene DocScene = new Scene(root);
@@ -51,7 +51,7 @@ public class PatientController implements Initializable {
         window.setScene(DocScene);
         window.show();
     }
-    //Μέθοδος για το κουμπί Manage Diseases
+    //Method for the Manage Diseases button
     public void handleDisBtn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("diseases.fxml"));
         Scene DisScene = new Scene(root);
@@ -59,7 +59,7 @@ public class PatientController implements Initializable {
         window.setScene(DisScene);
         window.show();
     }
-    //Μέθοδος για το κουμπί Add Patients
+    //Method for the Add Patients button
     public void handleAddPatBtn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("addPatient.fxml"));
         Scene DisScene = new Scene(root);
@@ -67,7 +67,7 @@ public class PatientController implements Initializable {
         window.setScene(DisScene);
         window.show();
     }
-    //Μέθοδος για το κουμπί Create Database
+    //Method for the Create Database button
     public void handleCreateDBbtn(ActionEvent event) {
         try {
             FileWriter myWriter = new FileWriter("database/patientDB.txt", true);
@@ -85,10 +85,10 @@ public class PatientController implements Initializable {
         }
     }
 
-    //Χρήση της μεθόδου initialize ώστε να αρχικοποιηθούν οι παρακάτω τιμές πριν την εκτέλεση του Controller
+    //use the initialize method to initialize the following values before running the controller
     @Override
     public void initialize(URL url, ResourceBundle rb){
-        //Εισαγωγή των τιμών των Object της κλάσης "Doctor" στα columns του Table "patientTable"
+        //Enter the Object values of the "Doctor" class in the "patientTable" Table columns
         idColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("id"));
         patientNameColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("name"));
         patientDOBColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("dateOfBirth"));
@@ -98,7 +98,7 @@ public class PatientController implements Initializable {
         diseaseColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("disease"));
         treatmentColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("treatment"));
 
-        patientTable.setItems(getPatients()); //Εισαγωγή των τιμών που επιστρέφει η μέθοδος "getPatients()" στο πίνακα "patientTable"
+        patientTable.setItems(getPatients()); //Enter the values that the "getPatients()" method returns in the "patientTable" table
     }
     public ObservableList<Patient> getPatients() {
 
@@ -106,15 +106,15 @@ public class PatientController implements Initializable {
         String file = "database/patientDB.txt";
         String line = "";
         String delimiter = ":";
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) { //Reading του αρχείου patientDB.txt
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) { //Reading the file patientDB.txt
             while ((line = br.readLine()) != null) {
                 List<String> values = Arrays.asList(line.split(delimiter));
                 int id = Integer.parseInt(values.get(0));
                 long tel = Long.parseLong(values.get(4));
-                //Όσο το αρχείο περιέχει εγγραφές, δημιουργούνται objects με τα περιεχόμενα των εγγραφών αυτών και εισάγωνται στη λίστα "patients"
+                //as long as the file contains records, objects with the contents of those records are created and entered into the patients list
                 patients.add(new Patient(id, values.get(1), values.get(2), values.get(3), tel, values.get(5), values.get(6), values.get(7)));
             }
-        } catch (FileNotFoundException e){ //Αν δεν υπάρχει το αρχείο "patientDB" τότε πραγματοποιούνται οι κατάλληλες ενέργειες
+        } catch (FileNotFoundException e){ //if the "patientdb" file does not exist then appropriate actions are taken
             MessageBox.SimpleMBox("Could not connect to Database", "Error");
             btnAddPat.setVisible(false);
             btnCreateDatabase.setVisible(true);
