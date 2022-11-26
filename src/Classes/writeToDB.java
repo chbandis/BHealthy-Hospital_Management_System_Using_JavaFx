@@ -41,7 +41,7 @@ public class writeToDB {
             e.printStackTrace();
         }
     }
-    //Registration in the database of appointments
+    //Registration in the appointment database 
     public static void newAppointment(int id, String patName, String patTel, String docName, String date, String datetime, String dis, String treat){
         try {
             FileWriter myWriter = new FileWriter("database/appointmentDB.txt", true);
